@@ -1,0 +1,25 @@
+---
+import { basehub } from 'basehub'
+
+const data = await basehub({
+	token: import.meta.env.BASEHUB_TOKEN
+}).query({
+	__typename: true,
+	_sys:{
+		id: true
+	}
+})
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<pre><code>{JSON.stringify(data, null, 2)}</code></pre>
+	</body>
+</html>
